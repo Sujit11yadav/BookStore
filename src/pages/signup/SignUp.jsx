@@ -6,7 +6,7 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import { registration } from "../../service/UserService";
 
-function SignUp() {
+function SignUp(props) {
   const fullNameRegex = /[A-Z]{1}[a-z]{2,}/;
   const emailRegex =
     /^[a-zA-Z]+[a-zA-Z0-9]*[- . + _]?[a-zA-Z0-9]+[@]{1}[a-z0-9]+[.]{1}[a-z]+[.]?[a-z]+$/;
@@ -82,6 +82,14 @@ function SignUp() {
     console.log(feildObj);
   };
 
+  const changeBox = () => {
+    props.listenToActive(true);
+  };
+
+  const changeBoxAgain = () => {
+    props.listenToActive(false);
+  };
+
   return (
     <div className="label">
       <div className="label1">
@@ -93,8 +101,12 @@ function SignUp() {
       <div className="label2">
         <div className="box22">
           <div className="rowA">
-            <h3>LOGIN</h3>
-            <h3>SIGNUP</h3>
+            <h3 style={{ cursor: "pointer" }} onClick={changeBox}>
+              LOGIN
+            </h3>
+            <h3 style={{ cursor: "pointer" }} onClick={changeBoxAgain}>
+              SIGNUP
+            </h3>
           </div>
           <div className="rowB">
             <TextField
