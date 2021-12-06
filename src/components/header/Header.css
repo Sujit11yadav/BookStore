@@ -1,0 +1,89 @@
+.header {
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 60px;
+  background: #a03037 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.header img {
+  position: absolute;
+  top: 19px;
+  left: 164px;
+  width: 31px;
+  height: 24px;
+  background: transparent 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.header p {
+  position: absolute;
+  left: 201px;
+  width: 91px;
+  height: 26px;
+  text-align: left;
+  font: normal normal normal 20px/26px Roboto;
+  letter-spacing: 0px;
+  color: #ffffff;
+  text-transform: capitalize;
+  opacity: 1;
+}
+.search {
+  position: absolute;
+  top: 14px;
+  left: 334px;
+  width: 490px;
+  height: 33px;
+  background: #fcfcfc 0% 0% no-repeat padding-box;
+  border-radius: 3px;
+  opacity: 1;
+}
+
+.PermIdentityOutlinedIcon {
+  position: absolute;
+  top: 18px;
+  left: 1071px;
+  width: 15px;
+  height: 15px;
+  color: white;
+  background: 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.ShoppingCartOutlinedIcon {
+  position: absolute;
+  color: white;
+  top: 18px;
+  left: 1164px;
+  width: 15px;
+  height: 16px;
+  background: 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.header h9 {
+  position: absolute;
+  top: 41px;
+  left: 1069px;
+  width: 31px;
+  height: 13px;
+  text-align: left;
+  font: normal normal normal 10px/13px Roboto;
+  letter-spacing: 0.45px;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.header h10 {
+  position: absolute;
+  top: 41px;
+  left: 1167px;
+  width: 31px;
+  height: 13px;
+  text-align: left;
+  font: normal normal normal 10px/13px Roboto;
+  letter-spacing: 0.45px;
+  color: #ffffff;
+  opacity: 1;
+}

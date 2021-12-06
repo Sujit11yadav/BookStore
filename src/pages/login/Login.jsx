@@ -110,12 +110,12 @@ function Login(props) {
               autoComplete="current-password"
             />
             {passwordVisibility ? (
-              <VisibilityOffOutlinedIcon
+              <VisibilityOutlinedIcon
                 onClick={handlePasswordToggle}
                 className="VisibilityOffOutlinedIcon1"
               />
             ) : (
-              <VisibilityOutlinedIcon
+              <VisibilityOffOutlinedIcon
                 onClick={handlePasswordToggle}
                 className="VisibilityOffOutlinedIcon1"
               />

@@ -142,12 +142,12 @@ function SignUp(props) {
               autoComplete="current-password"
             />
             {passwordVisibility ? (
-              <VisibilityOffOutlinedIcon
+              <VisibilityOutlinedIcon
                 onClick={handlePasswordToggle}
                 className="VisibilityOffOutlinedIcon"
               />
             ) : (
-              <VisibilityOutlinedIcon
+              <VisibilityOffOutlinedIcon
                 onClick={handlePasswordToggle}
                 className="VisibilityOffOutlinedIcon"
               />
