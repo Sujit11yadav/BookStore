@@ -54,6 +54,8 @@ function Login(props) {
     login(feildObj)
       .then(function (response) {
         console.log(response);
+        localStorage.setItem("id", response.data.result.accessToken);
+        console.log("Access Token: ", localStorage.getItem("id"));
       })
       .catch(function (error) {
         console.log(error);
