@@ -6,24 +6,62 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import StarIcon from "@mui/icons-material/Star";
 import { green } from "@mui/material/colors";
+import Box from "@mui/material/Box";
+import Pagination from "@mui/material/Pagination";
+import { createTheme, IconButton, PaginationItem } from "@mui/material";
+import { ThemeProvider } from "@emotion/react";
+import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
+import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import bookImage from "../../assests/homepage/bookImage.png";
 import "./Home.css";
 
 function Home() {
   const [selection, setSelection] = React.useState("");
   const [books, setBooks] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [booksPerPage, setBooksPerPage] = useState(12);
+
+  const theme = createTheme({
+    palette: {
+      myColor: {
+        main: "#A03037",
+        contrastText: "#ffffff",
+      },
+    },
+  });
+
+  const left = () => {
+    return (
+      <IconButton sx={{ border: "2px solid #E2E2E2" }}>
+        <ChevronLeftRoundedIcon />
+      </IconButton>
+    );
+  };
+
+  const right = () => {
+    return (
+      <IconButton sx={{ border: "2px solid #E2E2E2" }}>
+        <ChevronRightRoundedIcon />
+      </IconButton>
+    );
+  };
+
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
 
   const handleChange = (event) => {
     setSelection(event.target.value);
   };
+
+  const indexOfLastBook = currentPage * booksPerPage;
+  const indexOfFirstBook = indexOfLastBook - booksPerPage;
+  const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
 
   const displayBook = () => {
     book()
@@ -74,7 +112,7 @@ function Home() {
           </div>
         </div>
         <div className="display-cards">
-          {books.map((book) => (
+          {currentBooks.map((book) => (
             <div className="display-books">
               <Card
                 sx={{
@@ -118,7 +156,7 @@ function Home() {
                         textAlign: "left",
                         bgcolor: green[700],
                         width: 60,
-                        height: 30,
+                        height: 20,
                         font: "normal normal bold 18px/13px Roboto",
                       }}
                       variant="rounded"
@@ -144,6 +182,25 @@ function Home() {
             </div>
           ))}
         </div>
+        <ThemeProvider theme={theme}>
+          <Box
+            sx={{ display: "flex", justifyContent: "center", margin: "25px" }}
+          >
+            <Pagination
+              onChange={handlePageChange}
+              count={Math.ceil(books.length / 12)}
+              color="myColor"
+              page={currentPage}
+              shape="rounded"
+              renderItem={(item) => (
+                <PaginationItem
+                  components={{ previous: left, next: right }}
+                  {...item}
+                />
+              )}
+            />
+          </Box>
+        </ThemeProvider>
       </div>
       <Footer />
     </div>
