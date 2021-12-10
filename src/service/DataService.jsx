@@ -15,9 +15,11 @@ export const book = async () => {
 };
 
 export const addCartItems = async (obj) => {
+  console.log(obj);
   let response = await axios.post(
-    "https://new-bookstore-backend.herokuapp.com/bookstore_user/add_cart_item/60ab907e8e88dc0015f5a978",
-    obj
+    `https://new-bookstore-backend.herokuapp.com/bookstore_user/add_cart_item/${obj}`,
+    obj,
+    configObjGetBook
   );
   return response;
 };
@@ -34,7 +36,8 @@ export const cartItemQuantity = async (obj) => {
   console.log(obj);
   let response = await axios.put(
     "https://new-bookstore-backend.herokuapp.com/bookstore_user/cart_item_quantity/61b17d6012e5970015e04133",
-    obj
+    obj,
+    configObjGetBook
   );
   return response;
 };

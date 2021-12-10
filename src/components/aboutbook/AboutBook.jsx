@@ -40,34 +40,37 @@ function AboutBook(props) {
       });
   };
 
-  // const handleIncrement = (product) => {
-  //   let quantity = product.product_id.quantityToBuy + 1;
-  //   let data = {
-  //     quantityToBuy: quantity,
-  //   };
-  //   cartItemQuantity(data)
-  //     .then((response) => {
-  //       console.log(response);
-  // getCartItems()
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
+  const handleIncrement = () => {
+    let quantity = quantityToBuy + 1;
+    setQuantityToBuy(quantity);
+    let data = {
+      quantityToBuy: quantity,
+    };
+    cartItemQuantity(data)
+      .then((response) => {
+        console.log(response);
+        getCartItems();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
-  // const handleDecrement = (product) => {
-  //   let quantity = product.product_id.quantityToBuy - 1;
-  //   let data = {
-  //     quantityToBuy: quantity,
-  //   };
-  //   cartItemQuantity(data)
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
+  const handleDecrement = () => {
+    let quantity = quantityToBuy - 1;
+    setQuantityToBuy(quantity);
+    let data = {
+      quantityToBuy: quantity,
+    };
+    cartItemQuantity(data)
+      .then((response) => {
+        console.log(response);
+        getCartItems();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const productId = () => {
     // let productobj = {
@@ -77,6 +80,8 @@ function AboutBook(props) {
     addCartItems(props.booklist._id)
       .then((response) => {
         console.log(response);
+        getCartItems();
+        displayCartItems();
       })
       .catch((error) => {
         console.error(error);
@@ -125,7 +130,20 @@ function AboutBook(props) {
             >
               {getcartid.length !== 0 ? (
                 <Stack direction="row" spacing={1}>
-                  <button className="plus-icon">-</button>
+                  <button
+                    className="plus-icon"
+                    onClick={handleDecrement}
+                    style={{
+                      width: "40px",
+                      height: "24px",
+                      background: "#FAFAFA 0% 0% no-repeat padding-box",
+                      border: "1px solid #DBDBDB",
+                      opacity: "1",
+                      marginTop: "3px",
+                    }}
+                  >
+                    -
+                  </button>
                   <Avatar
                     sx={{
                       width: 50,
@@ -140,11 +158,17 @@ function AboutBook(props) {
                     {quantityToBuy}
                   </Avatar>
                   <button
-                    // onClick={() => {
-                    //   handleIncrement(product);
-                    // }}
+                    onClick={handleIncrement}
                     className="plus-icon"
                     id="plus"
+                    style={{
+                      width: "40px",
+                      height: "24px",
+                      background: "#FAFAFA 0% 0% no-repeat padding-box",
+                      border: "1px solid #DBDBDB",
+                      opacity: "1",
+                      marginTop: "3px",
+                    }}
                   >
                     +
                   </button>
@@ -263,6 +287,8 @@ function AboutBook(props) {
                 Customer Feedback
                 <Box
                   sx={{
+                    display: "flex",
+                    flexDirection: "column",
                     width: "100%",
                     maxWidth: 500,
                     backgroundColor: "#F5F5F5",
@@ -292,6 +318,28 @@ function AboutBook(props) {
                       setValue(newValue);
                     }}
                   />
+                  <TextField
+                    id="outlined-multiline-static"
+                    multiline
+                    rows={4}
+                    placeholder="Write your review"
+                    style={{
+                      marginLeft: "0.7vw",
+                      marginRight: "0.7vw",
+                      backgroundColor: "white",
+                    }}
+                  />
+                  <Button
+                    style={{
+                      width: "76px",
+                      height: "24px",
+                      marginTop: "1vh",
+                      marginLeft: "28vw",
+                    }}
+                    variant="contained"
+                  >
+                    Submit
+                  </Button>
                 </Box>
               </Typography>
             </Box>
