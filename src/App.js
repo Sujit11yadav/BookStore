@@ -1,12 +1,12 @@
 import './App.css';
-import CommomLogin from './pages/commonlogin/CommomLogin';
+import Dashboard from './pages/dashboard/Dashboard';
 import Home from './pages/home/Home';
 
 function App() {
   return (
     <div className="App">
       {/* <CommomLogin/> */}
-      <Home/>
+      <Dashboard/>
     </div>
   );
 }
