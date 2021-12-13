@@ -32,11 +32,11 @@ export const getCartItems = async () => {
   return response;
 };
 
-export const cartItemQuantity = async (obj) => {
-  console.log(obj);
+export const cartItemQuantity = async (data) => {
+  console.log(data);
   let response = await axios.put(
-    "https://new-bookstore-backend.herokuapp.com/bookstore_user/cart_item_quantity/61b17d6012e5970015e04133",
-    obj,
+    "https://new-bookstore-backend.herokuapp.com/bookstore_user/cart_item_quantity/60a8aab496edee0015d919dc",
+    data,
     configObjGetBook
   );
   return response;

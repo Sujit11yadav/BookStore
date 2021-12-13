@@ -21,8 +21,9 @@ import {
 function AboutBook(props) {
   const [getcartid, setgetcartid] = useState([]);
   const [value, setValue] = useState(2);
-  const [quantityToBuy, setQuantityToBuy] = useState(1);
-
+  const [quantityToBuy, setQuantityToBuy] = useState();
+  const [cartProductId, setCartProductId] = useState("");
+  console.log(props);
   const displayCartItems = () => {
     getCartItems()
       .then((response) => {
@@ -30,6 +31,8 @@ function AboutBook(props) {
         let filterArray = response.data.result.filter(function (cart) {
           if (props.booklist._id === cart.product_id._id) {
             setQuantityToBuy(cart.quantityToBuy);
+            setCartProductId(cart.product_id._id);
+            console.log(cart.product_id._id);
             return cart;
           }
         });
@@ -40,16 +43,19 @@ function AboutBook(props) {
       });
   };
 
+  console.log(getcartid);
+
   const handleIncrement = () => {
-    let quantity = quantityToBuy + 1;
-    setQuantityToBuy(quantity);
+    // let quantity = quantityToBuy + 1;
+    // setQuantityToBuy(quantity);
     let data = {
-      quantityToBuy: quantity,
+      quantityToBuy: quantityToBuy + 1,
     };
     cartItemQuantity(data)
       .then((response) => {
         console.log(response);
         getCartItems();
+        // console.log(cartProductId);
       })
       .catch((error) => {
         console.error(error);
@@ -58,7 +64,7 @@ function AboutBook(props) {
 
   const handleDecrement = () => {
     let quantity = quantityToBuy - 1;
-    setQuantityToBuy(quantity);
+    // setQuantityToBuy(quantity);
     let data = {
       quantityToBuy: quantity,
     };
@@ -132,6 +138,7 @@ function AboutBook(props) {
                 <Stack direction="row" spacing={1}>
                   <button
                     className="plus-icon"
+                    id={props.booklist._id}
                     onClick={handleDecrement}
                     style={{
                       width: "40px",
@@ -158,6 +165,7 @@ function AboutBook(props) {
                     {quantityToBuy}
                   </Avatar>
                   <button
+                    id={props.booklist._id}
                     onClick={handleIncrement}
                     className="plus-icon"
                     id="plus"
