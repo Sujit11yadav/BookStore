@@ -46,7 +46,14 @@ function MyCart(props) {
           ))}
         </div>
 
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginRight: "20px",
+            marginBottom: "20px",
+          }}
+        >
           <Button
             variant="contained"
             id="placeorderButton"
@@ -66,7 +73,10 @@ function MyCart(props) {
         )}
       </div>
 
-      <div className="OrderSummarySection">
+      <div
+        className="OrderSummarySection"
+        style={{ border: "1px solid black" }}
+      >
         {openOrderDetails ? (
           <div className="OrderItemBooks">
             {

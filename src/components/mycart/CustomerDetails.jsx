@@ -7,29 +7,31 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
+import Button from "@mui/material/Button";
 
 function CustomerDetails(props) {
-  const [customerObj, setcustomerObj] = useState({
+  const [addressObj, setAddressObj] = useState({
     addressType: "",
     fullAddress: "",
     city: "",
     state: "",
+    service: "advance",
   });
-  const takeaddresstype = (event) => {
-    setcustomerObj({ ...customerObj, addressType: event.target.value });
+  const takeAddressType = (event) => {
+    setAddressObj({ ...addressObj, addressType: event.target.value });
   };
-  const takefulladdress = (event) => {
-    setcustomerObj({ ...customerObj, fullAddress: event.target.value });
+  const takeFullAddress = (event) => {
+    setAddressObj({ ...addressObj, fullAddress: event.target.value });
   };
-  const takecity = (event) => {
-    setcustomerObj({ ...customerObj, city: event.target.value });
+  const takeCity = (event) => {
+    setAddressObj({ ...addressObj, city: event.target.value });
   };
-  const takestate = (event) => {
-    setcustomerObj({ ...customerObj, state: event.target.value });
+  const takeState = (event) => {
+    setAddressObj({ ...addressObj, state: event.target.value });
   };
 
   const onSubmit = () => {
-    CustomerDetailsEdit(customerObj)
+    CustomerDetailsEdit(addressObj)
       .then((response) => {
         console.log(response);
         props.displayParticularOrder(true);
@@ -54,7 +56,7 @@ function CustomerDetails(props) {
         <div className="AddressField">
           <TextField
             id="outlined-basics"
-            onChange={takefulladdress}
+            onChange={takeFullAddress}
             label="Address"
             variant="outlined"
           />
@@ -62,23 +64,28 @@ function CustomerDetails(props) {
         <div className="CityAndState">
           <TextField
             id="outlined-basic"
-            onChange={takecity}
+            onChange={takeCity}
             label="city/town"
             variant="outlined"
           />
           <TextField
             id="outlined-basic"
-            onChange={takestate}
+            onChange={takeState}
             label="State"
             variant="outlined"
           />
         </div>
-        <div className="RadioButtons" onChange={takeaddresstype}>
+        <div className="RadioButtons">
           <FormControl component="fieldset">
             <FormLabel style={{ paddingRight: "250px" }} component="legend">
               Type
             </FormLabel>
-            <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
+            <RadioGroup
+              row
+              aria-label="gender"
+              name="row-radio-buttons-group"
+              onChange={takeAddressType}
+            >
               <FormControlLabel value="Home" control={<Radio />} label="Home" />
               <FormControlLabel value="Work" control={<Radio />} label="Work" />
               <FormControlLabel
@@ -89,9 +96,14 @@ function CustomerDetails(props) {
             </RadioGroup>
           </FormControl>
         </div>
-        <div className="ContinueButton" onClick={onSubmit}>
+        <Button
+          style={{ marginBottom: "20px" }}
+          variant="contained"
+          className="ContinueButton"
+          onClick={onSubmit}
+        >
           Continue
-        </div>
+        </Button>
       </div>
     </div>
   );
