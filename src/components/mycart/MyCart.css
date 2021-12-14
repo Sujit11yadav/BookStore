@@ -1,0 +1,30 @@
+.MyCartSection {
+  width: 800px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+}
+
+.CartItemBooks {
+  min-height: 100px;
+}
+
+.AddressSection {
+  display: flex;
+  margin-top: 30px;
+}
+.OrderSummarySection {
+  width: 774px;
+  min-height: 60px;
+  margin-top: 30px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border: 1px solid #dcdcdc;
+  border-radius: 1px;
+  opacity: 1;
+}
+.OrderItemBooks {
+  /* border: 2px solid  red; */
+  width: 256px;
+  min-height: 100px;
+}

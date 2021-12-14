@@ -1,0 +1,59 @@
+.customerdetailsSection {
+  width: 100vw;
+  min-height: 70vh;
+  display: flex;
+  justify-content: space-around;
+}
+.DetailsContainer {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.Details {
+  font-size: 25px;
+  color: #333232;
+  opacity: 1;
+}
+.AddressButton {
+  width: 150px;
+  height: 35px;
+  color: #a03037;
+  background: #ffffff;
+  border: 1px solid #a03037;
+  border-radius: 2px;
+  opacity: 1;
+}
+.NameAndNumber,
+.CityAndState {
+  display: flex;
+  width: 540px;
+  justify-content: space-between;
+}
+.AddressField {
+  display: flex;
+  flex-direction: column;
+  width: 540px;
+}
+.RadioButtons {
+  width: 400px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.ContinueButton {
+  width: 150px;
+  height: 35px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  background: #3371b5 0% 0% no-repeat padding-box;
+  border-radius: 3px;
+}

@@ -32,11 +32,29 @@ export const getCartItems = async () => {
   return response;
 };
 
-export const cartItemQuantity = async (data) => {
+export const cartItemQuantity = async (obj, data) => {
+  console.log(obj);
   console.log(data);
   let response = await axios.put(
-    "https://new-bookstore-backend.herokuapp.com/bookstore_user/cart_item_quantity/60a8aab496edee0015d919dc",
+    `https://new-bookstore-backend.herokuapp.com/bookstore_user/cart_item_quantity/${obj}`,
     data,
+    configObjGetBook
+  );
+  return response;
+};
+
+export const DeleteBooks = async (id) => {
+  let response = await axios.delete(
+    `https://new-bookstore-backend.herokuapp.com/bookstore_user/remove_cart_item/${id}`,
+    configObjGetBook
+  );
+  return response;
+};
+
+export const CustomerDetailsEdit = async (obj) => {
+  let response = await axios.put(
+    "https://new-bookstore-backend.herokuapp.com/bookstore_user/edit_user",
+    obj,
     configObjGetBook
   );
   return response;

@@ -7,12 +7,16 @@ import AboutBook from "../../components/aboutbook/AboutBook";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import MyCart from "../../components/mycart/MyCart";
 
 function Dashboard(props) {
   const [books, setBooks] = useState([]);
   const [booklist, setbooklist] = useState("");
   const [switchbookcart, setswitchbookcart] = useState(false);
   const [selection, setSelection] = useState("");
+  const [displayParticularBook, setdisplayParticularBook] = useState(false);
+  const [displayMyCart, setdisplayMyCart] = useState(false);
+  const [singleBooksInfo, setSingleBooksInfo] = useState("");
 
   const handleChange = (event) => {
     setSelection(event.target.value);
@@ -38,6 +42,14 @@ function Dashboard(props) {
   const ListenToBookList = (data) => {
     console.log(data);
     setbooklist(data);
+  };
+
+  const ListenToCart = (data) => {
+    if (data == true) {
+      setdisplayMyCart(true);
+    } else if (data == false) {
+      setdisplayMyCart(false);
+    }
   };
 
   useEffect(() => {
@@ -78,16 +90,28 @@ function Dashboard(props) {
           </div>
         </div>
         <div className="Dashboard">
-          {switchbookcart ? (
-            <AboutBook booklist={booklist} />
+          {displayMyCart ? (
+            <MyCart />
           ) : (
-            books.map((book) => (
-              <Home
-                book={book}
-                ListenToBookList={ListenToBookList}
-                ListentoSwitchbook={ListentoSwitchbook}
-              />
-            ))
+            <div className="maincontainer">
+              <Header ListenToCart={ListenToCart} />
+
+              <div className="main">
+                <div className="BookContainer">
+                  {switchbookcart ? (
+                    <AboutBook booklist={booklist} />
+                  ) : (
+                    books.map((book) => (
+                      <Home
+                        book={book}
+                        ListenToBookList={ListenToBookList}
+                        ListentoSwitchbook={ListentoSwitchbook}
+                      />
+                    ))
+                  )}
+                </div>
+              </div>
+            </div>
           )}
         </div>
       </div>

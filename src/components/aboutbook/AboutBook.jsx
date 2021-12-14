@@ -21,7 +21,7 @@ import {
 function AboutBook(props) {
   const [getcartid, setgetcartid] = useState([]);
   const [value, setValue] = useState(2);
-  const [quantityToBuy, setQuantityToBuy] = useState();
+  const [quantityToBuy, setQuantityToBuy] = useState("");
   const [cartProductId, setCartProductId] = useState("");
   console.log(props);
   const displayCartItems = () => {
@@ -43,19 +43,19 @@ function AboutBook(props) {
       });
   };
 
-  console.log(getcartid);
+  console.log(cartProductId);
 
   const handleIncrement = () => {
-    // let quantity = quantityToBuy + 1;
-    // setQuantityToBuy(quantity);
+    let quantity = quantityToBuy + 1;
+    setQuantityToBuy(quantity);
     let data = {
-      quantityToBuy: quantityToBuy + 1,
+      quantityToBuy: quantity,
     };
-    cartItemQuantity(data)
+    cartItemQuantity(cartProductId, data)
       .then((response) => {
         console.log(response);
         getCartItems();
-        // console.log(cartProductId);
+        console.log(cartProductId);
       })
       .catch((error) => {
         console.error(error);
@@ -64,11 +64,11 @@ function AboutBook(props) {
 
   const handleDecrement = () => {
     let quantity = quantityToBuy - 1;
-    // setQuantityToBuy(quantity);
+    setQuantityToBuy(quantity);
     let data = {
       quantityToBuy: quantity,
     };
-    cartItemQuantity(data)
+    cartItemQuantity(cartProductId, data)
       .then((response) => {
         console.log(response);
         getCartItems();
@@ -79,10 +79,6 @@ function AboutBook(props) {
   };
 
   const productId = () => {
-    // let productobj = {
-    //   product_id: props.booklist._id,
-    // };
-    // console.log(productobj);
     addCartItems(props.booklist._id)
       .then((response) => {
         console.log(response);
