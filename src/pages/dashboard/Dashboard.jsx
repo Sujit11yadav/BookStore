@@ -14,9 +14,7 @@ function Dashboard(props) {
   const [booklist, setbooklist] = useState("");
   const [switchbookcart, setswitchbookcart] = useState(false);
   const [selection, setSelection] = useState("");
-  const [displayParticularBook, setdisplayParticularBook] = useState(false);
   const [displayMyCart, setdisplayMyCart] = useState(false);
-  const [singleBooksInfo, setSingleBooksInfo] = useState("");
 
   const handleChange = (event) => {
     setSelection(event.target.value);
@@ -93,22 +91,26 @@ function Dashboard(props) {
           {displayMyCart ? (
             <MyCart />
           ) : (
-            <div className="maincontainer">
-              <div className="main">
-                <div className="BookContainer">
-                  {switchbookcart ? (
-                    <AboutBook booklist={booklist} />
-                  ) : (
-                    books.map((book) => (
-                      <Home
-                        book={book}
-                        ListenToBookList={ListenToBookList}
-                        ListentoSwitchbook={ListentoSwitchbook}
-                      />
-                    ))
-                  )}
-                </div>
-              </div>
+            <div
+              className="BookContainer"
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "2vw",
+                marginBottom: "5vw",
+              }}
+            >
+              {switchbookcart ? (
+                <AboutBook booklist={booklist} />
+              ) : (
+                books.map((book) => (
+                  <Home
+                    book={book}
+                    ListenToBookList={ListenToBookList}
+                    ListentoSwitchbook={ListentoSwitchbook}
+                  />
+                ))
+              )}
             </div>
           )}
         </div>

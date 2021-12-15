@@ -5,67 +5,19 @@ import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import StarIcon from "@mui/icons-material/Star";
 import { green } from "@mui/material/colors";
-// import Box from "@mui/material/Box";
-// import Pagination from "@mui/material/Pagination";
-// import { createTheme, IconButton, PaginationItem } from "@mui/material";
-// import { ThemeProvider } from "@emotion/react";
-// import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
-// import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import bookImage from "../../assests/homepage/bookImage.png";
 import "./Home.css";
 
 function Home(props) {
-  // const [selection, setSelection] = useState("");
-  // const [books, setBooks] = useState([]);
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [booksPerPage, setBooksPerPage] = useState(15);
-
   const Showbookdata = (data) => {
     console.log(data);
     props.ListenToBookList(data);
     props.ListentoSwitchbook(true);
   };
 
-  // const theme = createTheme({
-  //   palette: {
-  //     myColor: {
-  //       main: "#A03037",
-  //       contrastText: "#ffffff",
-  //     },
-  //   },
-  // });
-
-  // const left = () => {
-  //   return (
-  //     <IconButton sx={{ border: "2px solid #E2E2E2" }}>
-  //       <ChevronLeftRoundedIcon />
-  //     </IconButton>
-  //   );
-  // };
-
-  // const right = () => {
-  //   return (
-  //     <IconButton sx={{ border: "2px solid #E2E2E2" }}>
-  //       <ChevronRightRoundedIcon />
-  //     </IconButton>
-  //   );
-  // };
-
-  // const handlePageChange = (event, value) => {
-  //   setCurrentPage(value);
-  // };
-
-  // const indexOfLastBook = currentPage * booksPerPage;
-  // const indexOfFirstBook = indexOfLastBook - booksPerPage;
-  // const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
-
   return (
     <div>
-      <div
-        className="display-cards"
-        style={{ backgroundColor: "grey" }}
-        onClick={() => Showbookdata(props.book)}
-      >
+      <div className="display-cards" onClick={() => Showbookdata(props.book)}>
         <div className="display-books">
           <Card
             sx={{
@@ -134,23 +86,6 @@ function Home(props) {
           </Card>
         </div>
       </div>
-      {/* <ThemeProvider theme={theme}>
-        <Box sx={{ display: "flex", justifyContent: "center", margin: "25px" }}>
-          <Pagination
-            onChange={handlePageChange}
-            count={Math.ceil(books.length / 12)}
-            color="myColor"
-            page={currentPage}
-            shape="rounded"
-            renderItem={(item) => (
-              <PaginationItem
-                components={{ previous: left, next: right }}
-                {...item}
-              />
-            )}
-          />
-        </Box>
-      </ThemeProvider> */}
     </div>
   );
 }
