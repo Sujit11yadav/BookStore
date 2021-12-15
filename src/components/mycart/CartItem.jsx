@@ -24,7 +24,10 @@ function CartItem(props) {
       });
   };
 
+  console.log(props.bookitem._id);
+
   const increment = (bookobj) => {
+    console.log(bookobj);
     let quantity = props.bookitem.quantityToBuy + 1;
     updateCartQuantity(bookobj, quantity);
   };
@@ -33,6 +36,7 @@ function CartItem(props) {
     let quantity = props.bookitem.quantityToBuy - 1;
     updateCartQuantity(bookobj, quantity);
   };
+
   const deletebooks = (e) => {
     DeleteBooks(e.target.id)
       .then((response) => {

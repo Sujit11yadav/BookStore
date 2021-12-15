@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./OrderSummary.css";
 import bookImage from "../../assests/homepage/bookImage.png";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import OrderPlaced from "../../pages/orderplaced/OrderPlaced";
 
 function OrderSummary(props) {
-  const Ordered = () => {};
-
   return (
     <>
       <div className="mainOrderSummery">
@@ -90,13 +89,6 @@ function OrderSummary(props) {
             </div>
           </div>
         </div>
-        <Button
-          className="checkoutbutton"
-          variant="contained"
-          onClick={Ordered}
-        >
-          CHECKOUT
-        </Button>
       </div>
     </>
   );

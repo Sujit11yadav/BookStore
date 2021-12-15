@@ -21,9 +21,10 @@ import {
 function AboutBook(props) {
   const [getcartid, setgetcartid] = useState([]);
   const [value, setValue] = useState(2);
-  const [quantityToBuy, setQuantityToBuy] = useState("");
+  const [quantityToBuy, setQuantityToBuy] = useState(0);
   const [cartProductId, setCartProductId] = useState("");
   console.log(props);
+
   const displayCartItems = () => {
     getCartItems()
       .then((response) => {
@@ -31,7 +32,7 @@ function AboutBook(props) {
         let filterArray = response.data.result.filter(function (cart) {
           if (props.booklist._id === cart.product_id._id) {
             setQuantityToBuy(cart.quantityToBuy);
-            setCartProductId(cart.product_id._id);
+            setCartProductId(cart._id);
             console.log(cart.product_id._id);
             return cart;
           }
@@ -47,14 +48,22 @@ function AboutBook(props) {
 
   const handleIncrement = () => {
     let quantity = quantityToBuy + 1;
-    setQuantityToBuy(quantity);
     let data = {
       quantityToBuy: quantity,
     };
     cartItemQuantity(cartProductId, data)
       .then((response) => {
         console.log(response);
-        getCartItems();
+        getCartItems().then((response) => {
+          let resultArray = response.data.result.filter(function (cartObj) {
+            console.log(cartObj, cartProductId);
+            if (cartObj._id === cartProductId) {
+              return cartObj;
+            }
+          });
+          console.log(resultArray);
+          setQuantityToBuy(resultArray[0].quantityToBuy);
+        });
         console.log(cartProductId);
       })
       .catch((error) => {
@@ -64,14 +73,23 @@ function AboutBook(props) {
 
   const handleDecrement = () => {
     let quantity = quantityToBuy - 1;
-    setQuantityToBuy(quantity);
     let data = {
       quantityToBuy: quantity,
     };
     cartItemQuantity(cartProductId, data)
       .then((response) => {
         console.log(response);
-        getCartItems();
+        getCartItems().then((response) => {
+          let resultArray = response.data.result.filter(function (cartObj) {
+            console.log(cartObj, cartProductId);
+            if (cartObj._id === cartProductId) {
+              return cartObj;
+            }
+          });
+          console.log(resultArray);
+          setQuantityToBuy(resultArray[0].quantityToBuy);
+        });
+        console.log(cartProductId);
       })
       .catch((error) => {
         console.error(error);
@@ -92,7 +110,7 @@ function AboutBook(props) {
 
   useEffect(() => {
     displayCartItems();
-  }, []);
+  }, [quantityToBuy]);
 
   return (
     <div>
