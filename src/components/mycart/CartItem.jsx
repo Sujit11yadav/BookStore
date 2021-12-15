@@ -54,7 +54,10 @@ function CartItem(props) {
         className="card-contents"
         style={{ display: "flex", marginBottom: "10px" }}
       >
-        <div className="card-contents1" style={{ display: "flex" }}>
+        <div
+          className="card-contents1"
+          style={{ display: "flex", paddingLeft: "0.7vw" }}
+        >
           <Card
             sx={{
               maxWidth: 320,

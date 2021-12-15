@@ -8,6 +8,7 @@ import OrderSummary from "./OrderSummary";
 import bookImage from "../../assests/homepage/bookImage.png";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
 
 function MyCart(props) {
   const [MycartList, setMyCartList] = useState([]);
@@ -40,6 +41,14 @@ function MyCart(props) {
   return (
     <div className="MyCartSection">
       <div style={{ border: "1px solid black" }}>
+        <Typography
+          style={{ paddingLeft: "0.7vw", fontWeight: "bold" }}
+          variant="h5"
+          color="black"
+          textAlign="left"
+        >
+          My Cart({MycartList.length})
+        </Typography>
         <div className="CartItemBooks">
           {MycartList.map((bookitem) => (
             <CartItem bookitem={bookitem} getCartItem={getCartItem} />
