@@ -43,9 +43,9 @@ export const cartItemQuantity = async (obj, data) => {
   return response;
 };
 
-export const DeleteBooks = async (id) => {
+export const DeleteBooks = async (obj) => {
   let response = await axios.delete(
-    `https://new-bookstore-backend.herokuapp.com/bookstore_user/remove_cart_item/${id}`,
+    `https://new-bookstore-backend.herokuapp.com/bookstore_user/remove_cart_item/${obj}`,
     configObjGetBook
   );
   return response;

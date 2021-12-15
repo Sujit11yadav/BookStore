@@ -15,9 +15,13 @@ function Header(props) {
         <img src={education} alt="education" />
         <p>bookstore</p>
         <input className="search" type="search" placeholder="Search..." />
-        <PermIdentityOutlinedIcon className="PermIdentityOutlinedIcon" />
+        <PermIdentityOutlinedIcon
+          style={{ cursor: "pointer" }}
+          className="PermIdentityOutlinedIcon"
+        />
         <h9>Profile</h9>
         <ShoppingCartOutlinedIcon
+          style={{ cursor: "pointer" }}
           onClick={OpenMyCart}
           className="ShoppingCartOutlinedIcon"
         />

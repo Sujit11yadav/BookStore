@@ -10,7 +10,6 @@ import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 
 function CartItem(props) {
-  // Method to update book order quantity
   const updateCartQuantity = (bookitem, quantitydata) => {
     let obj = {
       quantityToBuy: quantitydata,
@@ -25,13 +24,11 @@ function CartItem(props) {
       });
   };
 
-  // Increase  the books added to cart
   const increment = (bookobj) => {
     let quantity = props.bookitem.quantityToBuy + 1;
     updateCartQuantity(bookobj, quantity);
   };
 
-  // Decreasing the books added to cart
   const decrement = (bookobj) => {
     let quantity = props.bookitem.quantityToBuy - 1;
     updateCartQuantity(bookobj, quantity);

@@ -63,7 +63,7 @@ function Home(props) {
     <div>
       <div
         className="display-cards"
-        style={{ backgroundColor: "red" }}
+        style={{ backgroundColor: "grey" }}
         onClick={() => Showbookdata(props.book)}
       >
         <div className="display-books">
