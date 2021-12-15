@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./OrderPlaced.css";
 import { Button } from "@mui/material";
 import orderplaced from "../../assests/order/orderplaced.jpeg";

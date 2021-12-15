@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./MyCart.css";
 import CartItem from "./CartItem";
 import { getCartItems } from "../../service/DataService";
-import Header from "../header/Header";
 import CustomerDetails from "./CustomerDetails";
 import OrderSummary from "./OrderSummary";
-import bookImage from "../../assests/homepage/bookImage.png";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
@@ -110,6 +108,19 @@ function MyCart(props) {
           >
             {openOrderDetails ? (
               <div className="OrderItemBooks">
+                <Typography
+                  style={{
+                    paddingLeft: "0.7vw",
+                    fontWeight: "bold",
+                    marginTop: "20px",
+                    marginBottom: "20px",
+                  }}
+                  variant="h5"
+                  color="black"
+                  textAlign="left"
+                >
+                  Order Summary
+                </Typography>
                 {MycartList.map((bookitem) => (
                   <OrderSummary bookitem={bookitem} />
                 ))}

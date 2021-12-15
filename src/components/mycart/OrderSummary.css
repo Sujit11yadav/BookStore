@@ -1,6 +1,6 @@
 .mainOrderSummery {
   width: 55vw;
-  min-height: 35vh;
+  min-height: 25vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

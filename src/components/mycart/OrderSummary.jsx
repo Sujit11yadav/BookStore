@@ -1,24 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./OrderSummary.css";
 import bookImage from "../../assests/homepage/bookImage.png";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import OrderPlaced from "../../pages/orderplaced/OrderPlaced";
 
 function OrderSummary(props) {
   return (
     <>
       <div className="mainOrderSummery">
-        <Typography
-          style={{ paddingLeft: "0.7vw", fontWeight: "bold" }}
-          variant="h5"
-          color="black"
-          textAlign="left"
-        >
-          Order Summary
-        </Typography>
         <div
           className="card-contents"
           style={{ display: "flex", marginBottom: "10px" }}
