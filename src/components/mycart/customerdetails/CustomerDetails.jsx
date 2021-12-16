@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import "./CustomerDetails.css";
-import { CustomerDetailsEdit } from "../../service/DataService";
+import { CustomerDetailsEdit } from "../../../service/DataService";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -28,6 +28,8 @@ function CustomerDetails(props) {
   const takeState = (event) => {
     setAddressObj({ ...addressObj, state: event.target.value });
   };
+
+  console.log(addressObj);
 
   const onSubmit = () => {
     CustomerDetailsEdit(addressObj)
@@ -85,9 +87,20 @@ function CustomerDetails(props) {
               name="row-radio-buttons-group"
               onChange={takeAddressType}
             >
-              <FormControlLabel value="Home" control={<Radio />} label="Home" />
-              <FormControlLabel value="Work" control={<Radio />} label="Work" />
               <FormControlLabel
+                onChange={takeAddressType}
+                value="Home"
+                control={<Radio />}
+                label="Home"
+              />
+              <FormControlLabel
+                onChange={takeAddressType}
+                value="Work"
+                control={<Radio />}
+                label="Work"
+              />
+              <FormControlLabel
+                onChange={takeAddressType}
                 value="other"
                 control={<Radio />}
                 label="Other"

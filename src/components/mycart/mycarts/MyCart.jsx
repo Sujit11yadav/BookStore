@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./MyCart.css";
-import CartItem from "./CartItem";
-import { getCartItems } from "../../service/DataService";
-import CustomerDetails from "./CustomerDetails";
-import OrderSummary from "./OrderSummary";
+import CartItem from "../cartitem/CartItem";
+import { getCartItems } from "../../../service/DataService";
+import CustomerDetails from "../customerdetails/CustomerDetails";
+import OrderSummary from "../ordersummary/OrderSummary";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import OrderPlaced from "../../pages/orderplaced/OrderPlaced";
+import OrderPlaced from "../../../pages/orderplaced/OrderPlaced";
 
 function MyCart(props) {
   const [MycartList, setMyCartList] = useState([]);

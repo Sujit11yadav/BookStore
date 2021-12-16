@@ -1,5 +1,5 @@
 import React from "react";
-import { cartItemQuantity, DeleteBooks } from "../../service/DataService";
+import { cartItemQuantity, DeleteBooks } from "../../../service/DataService";
 import "./CartItem.css";
 import bookImage from "../../assests/homepage/bookImage.png";
 import Card from "@mui/material/Card";
