@@ -95,9 +95,9 @@ function CustomerDetails(props) {
               />
               <FormControlLabel
                 onChange={takeAddressType}
-                value="Work"
+                value="Office"
                 control={<Radio />}
-                label="Work"
+                label="Office"
               />
               <FormControlLabel
                 onChange={takeAddressType}

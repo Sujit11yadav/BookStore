@@ -1,7 +1,7 @@
 import React from "react";
 import { cartItemQuantity, DeleteBooks } from "../../../service/DataService";
 import "./CartItem.css";
-import bookImage from "../../assests/homepage/bookImage.png";
+import bookImage from "../../../assests/homepage/bookImage.png";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
