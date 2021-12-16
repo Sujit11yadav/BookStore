@@ -17,7 +17,7 @@ function CartItem(props) {
     cartItemQuantity(props.bookitem._id, obj)
       .then((response) => {
         console.log(response);
-        props.getCartItems();
+        props.ListenToDeleteItems(true);
       })
       .catch((error) => {
         console.log(error);
@@ -41,7 +41,7 @@ function CartItem(props) {
     DeleteBooks(e.target.id)
       .then((response) => {
         console.log(response);
-        props.getcartItems();
+        props.ListenToDeleteItems(true);
       })
       .catch((error) => {
         console.log(props.bookitem._id);

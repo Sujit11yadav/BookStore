@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import "./CustomerDetails.css";
 import { CustomerDetailsEdit } from "../../service/DataService";
@@ -15,7 +15,6 @@ function CustomerDetails(props) {
     fullAddress: "",
     city: "",
     state: "",
-    service: "advance",
   });
   const takeAddressType = (event) => {
     setAddressObj({ ...addressObj, addressType: event.target.value });

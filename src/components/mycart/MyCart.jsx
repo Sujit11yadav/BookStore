@@ -20,6 +20,12 @@ function MyCart(props) {
     setShowPlaced(false);
   };
 
+  const ListenToDeleteItems = (data) => {
+    if (data === true) {
+      getCartItem();
+    }
+  };
+
   const getCartItem = () => {
     getCartItems()
       .then((response) => {
@@ -64,7 +70,11 @@ function MyCart(props) {
             </Typography>
             <div className="CartItemBooks">
               {MycartList.map((bookitem) => (
-                <CartItem bookitem={bookitem} getCartItem={getCartItem} />
+                <CartItem
+                  bookitem={bookitem}
+                  getCartItem={getCartItem}
+                  ListenToDeleteItems={ListenToDeleteItems}
+                />
               ))}
             </div>
 
