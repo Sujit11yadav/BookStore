@@ -59,3 +59,21 @@ export const CustomerDetailsEdit = async (obj) => {
   );
   return response;
 };
+
+export const addWishlistItems = async (obj) => {
+  console.log(obj);
+  let response = await axios.post(
+    `https://new-bookstore-backend.herokuapp.com/bookstore_user/add_wish_list/${obj}`,
+    obj,
+    configObjGetBook
+  );
+  return response;
+};
+
+export const getWishlistItems = async () => {
+  let response = await axios.get(
+    "https://new-bookstore-backend.herokuapp.com/bookstore_user/get_wishlist_items",
+    configObjGetBook
+  );
+  return response;
+};
