@@ -16,6 +16,8 @@ import {
   getCartItems,
   addCartItems,
   cartItemQuantity,
+  addWishlistItems,
+  getWishlistItems,
 } from "../../service/DataService";
 
 function AboutBook(props) {
@@ -23,7 +25,7 @@ function AboutBook(props) {
   const [value, setValue] = useState(2);
   const [quantityToBuy, setQuantityToBuy] = useState(0);
   const [cartProductId, setCartProductId] = useState("");
-  console.log(props);
+  const [getWishlistId, setGetWishlistId] = useState([]);
 
   const displayCartItems = () => {
     getCartItems()
@@ -38,6 +40,25 @@ function AboutBook(props) {
           }
         });
         setgetcartid(filterArray);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const displayWishlistItems = () => {
+    getWishlistItems()
+      .then((response) => {
+        console.log(response);
+        let filterWishlistArray = response.data.result.filter(function (
+          wishlist
+        ) {
+          if (props.booklist._id === wishlist.product_id._id) {
+            console.log(wishlist.product_id._id);
+            return wishlist;
+          }
+        });
+        setGetWishlistId(filterWishlistArray);
       })
       .catch((error) => {
         console.log(error);
@@ -108,8 +129,19 @@ function AboutBook(props) {
       });
   };
 
+  const addToWishlist = () => {
+    addWishlistItems(props.booklist._id)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   useEffect(() => {
     displayCartItems();
+    displayWishlistItems();
   }, [quantityToBuy]);
 
   return (
@@ -210,18 +242,34 @@ function AboutBook(props) {
                   ADD TO BAG
                 </Button>
               )}
-              <Button
-                fullWidth
-                style={{
-                  backgroundColor: "#333333",
-                  marginBottom: "30px",
-                  width: "150px",
-                  height: "40px",
-                }}
-                variant="contained"
-              >
-                Wishlist
-              </Button>
+              {getWishlistId.length !== 0 ? (
+                <Button
+                  fullWidth
+                  style={{
+                    backgroundColor: "#333333",
+                    marginBottom: "30px",
+                    width: "150px",
+                    height: "40px",
+                  }}
+                  variant="contained"
+                >
+                  Added To Wishlist
+                </Button>
+              ) : (
+                <Button
+                  fullWidth
+                  style={{
+                    backgroundColor: "#333333",
+                    marginBottom: "30px",
+                    width: "150px",
+                    height: "40px",
+                  }}
+                  variant="contained"
+                  onClick={addToWishlist}
+                >
+                  Wishlist
+                </Button>
+              )}
             </div>
           </div>
           <div className="display-detail" style={{ marginLeft: "10px" }}>
