@@ -133,6 +133,8 @@ function AboutBook(props) {
     addWishlistItems(props.booklist._id)
       .then((response) => {
         console.log(response);
+        getWishlistItems();
+        displayWishlistItems();
       })
       .catch((error) => {
         console.log(error);
@@ -246,12 +248,13 @@ function AboutBook(props) {
                 <Button
                   fullWidth
                   style={{
-                    backgroundColor: "#333333",
+                    color: "black",
+                    borderColor: "#878787",
                     marginBottom: "30px",
                     width: "150px",
                     height: "40px",
                   }}
-                  variant="contained"
+                  variant="outlined"
                 >
                   Added To Wishlist
                 </Button>
