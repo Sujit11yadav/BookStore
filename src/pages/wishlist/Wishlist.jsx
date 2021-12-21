@@ -3,6 +3,7 @@ import "./Wishlist.css";
 import {
   getWishlistItems,
   deleteWishlistItems,
+  book,
 } from "../../service/DataService";
 import bookImage from "../../assests/homepage/bookImage.png";
 import Button from "@mui/material/Button";
@@ -18,6 +19,20 @@ import Footer from "../../components/footer/Footer";
 function Wishlist() {
   const [wish, setWish] = useState([]);
   const [myWishlist, setMyWishlist] = useState([]);
+  const [wishProductId, setWishProductId] = useState("");
+
+  const displayBookId = () => {
+    book()
+      .then((response) => {
+        console.log(response.data.result);
+        setWishProductId(response.data.result.product_id._id);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  console.log(wishProductId);
 
   const displayWishlistItem = () => {
     getWishlistItems()
@@ -32,7 +47,7 @@ function Wishlist() {
   };
 
   const handleDelete = () => {
-    deleteWishlistItems()
+    deleteWishlistItems(wishProductId)
       .then((response) => {
         console.log(response);
         displayWishlistItem();
@@ -42,6 +57,7 @@ function Wishlist() {
       });
   };
   useEffect(() => {
+    displayBookId();
     displayWishlistItem();
   }, []);
 

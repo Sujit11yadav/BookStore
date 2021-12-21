@@ -13,6 +13,10 @@ axios.interceptors.request.use(function (config) {
     config.headers.token = localStorage.getItem("id");
   }
 
+  if (config.url.includes("remove_")) {
+    config.headers.token = localStorage.getItem("id");
+  }
+
   console.log(config);
   return config;
 });
