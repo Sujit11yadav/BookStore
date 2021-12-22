@@ -49,6 +49,22 @@ function Wishlist() {
     <>
       <Header />
       <div className="main">
+        <div
+          className="wishlist-title"
+          style={{
+            display: "flex",
+            width: "100%",
+            background: "#F5F5F5 0% 0% no-repeat padding-box",
+            border: "1px solid #E4E4E4",
+            marginTop: "20px",
+            borderRadius: "1px",
+            opacity: "1",
+          }}
+        >
+          <p style={{ marginLeft: "20px" }} className="mywishlist">
+            My Wishlist ({myWishlist.length})
+          </p>
+        </div>
         <div className="wishlist-items">
           {myWishlist.length === 0 ? (
             <div className="empty">
@@ -59,7 +75,11 @@ function Wishlist() {
               <>
                 <div
                   className="card-contents"
-                  style={{ display: "flex", marginBottom: "10px" }}
+                  style={{
+                    display: "flex",
+                    marginBottom: "10px",
+                    marginTop: "10px",
+                  }}
                 >
                   <div
                     className="card-contents1"
