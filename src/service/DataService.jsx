@@ -70,9 +70,10 @@ export const getWishlistItems = async (obj) => {
   return response;
 };
 
-export const deleteWishlistItems = async (obj) => {
+export const deleteWishlistItems = async (id) => {
+  console.log(id);
   let response = await axios.delete(
-    `https://new-bookstore-backend.herokuapp.com/bookstore_user/remove_cart_item/${obj}`
+    `https://new-bookstore-backend.herokuapp.com/bookstore_user/remove_wishlist_item/${id}`
   );
   return response;
 };

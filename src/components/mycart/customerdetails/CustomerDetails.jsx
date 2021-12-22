@@ -101,7 +101,7 @@ function CustomerDetails(props) {
               />
               <FormControlLabel
                 onChange={takeAddressType}
-                value="other"
+                value="Other"
                 control={<Radio />}
                 label="Other"
               />

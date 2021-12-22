@@ -13,7 +13,7 @@ axios.interceptors.request.use(function (config) {
     config.headers.token = localStorage.getItem("id");
   }
 
-  if (config.url.includes("remove_")) {
+  if (config.url.includes("remove_wishlist_item")) {
     config.headers.token = localStorage.getItem("id");
   }
 

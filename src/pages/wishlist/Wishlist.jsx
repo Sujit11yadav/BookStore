@@ -3,7 +3,6 @@ import "./Wishlist.css";
 import {
   getWishlistItems,
   deleteWishlistItems,
-  book,
 } from "../../service/DataService";
 import bookImage from "../../assests/homepage/bookImage.png";
 import Button from "@mui/material/Button";
@@ -17,22 +16,7 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 
 function Wishlist() {
-  const [wish, setWish] = useState([]);
   const [myWishlist, setMyWishlist] = useState([]);
-  const [wishProductId, setWishProductId] = useState("");
-
-  const displayBookId = () => {
-    book()
-      .then((response) => {
-        console.log(response.data.result);
-        setWishProductId(response.data.result.product_id._id);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  console.log(wishProductId);
 
   const displayWishlistItem = () => {
     getWishlistItems()
@@ -46,8 +30,8 @@ function Wishlist() {
       });
   };
 
-  const handleDelete = () => {
-    deleteWishlistItems(wishProductId)
+  const handleDelete = (e) => {
+    deleteWishlistItems(e.target.id)
       .then((response) => {
         console.log(response);
         displayWishlistItem();
@@ -56,8 +40,8 @@ function Wishlist() {
         console.log(error);
       });
   };
+
   useEffect(() => {
-    displayBookId();
     displayWishlistItem();
   }, []);
 
@@ -141,13 +125,14 @@ function Wishlist() {
                         style={{ display: "flex" }}
                       ></div>
                       <IconButton
-                        onClick={handleDelete}
                         style={{
                           display: "flex",
                           marginLeft: "55vw",
                         }}
                       >
                         <DeleteIcon
+                          onClick={handleDelete}
+                          id={product.product_id._id}
                           style={{
                             color: "grey",
                             cursor: "pointer",
