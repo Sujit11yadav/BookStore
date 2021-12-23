@@ -56,7 +56,7 @@ function Dashboard(props) {
 
   return (
     <div>
-      <Header ListenToCart={ListenToCart} />
+      <Header className="header" ListenToCart={ListenToCart} />
       <div className="main-content">
         <div className="title">
           <div className="left-content">
