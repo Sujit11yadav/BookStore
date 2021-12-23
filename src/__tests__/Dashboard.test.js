@@ -14,8 +14,24 @@ describe("test if containers of dashboard are loaded", () => {
     expect(dashboardTest.find(".header").exists()).toBe(true);
   });
 
+  it("test if main container is loaded", () => {
+    expect(dashboardTest.find(".main-content").exists()).toBe(true);
+  });
+
   it("test if title container is loaded", () => {
     expect(dashboardTest.find(".title").exists()).toBe(true);
+  });
+
+  it("test if left container is loaded", () => {
+    expect(dashboardTest.find(".left-content").exists()).toBe(true);
+  });
+
+  it("test if book container is loaded", () => {
+    expect(dashboardTest.find(".book").exists()).toBe(true);
+  });
+
+  it("test if items container is loaded", () => {
+    expect(dashboardTest.find(".items").exists()).toBe(true);
   });
 
   it("test if dashboard container is loaded", () => {
