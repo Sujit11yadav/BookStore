@@ -231,6 +231,7 @@ function AboutBook(props) {
                 </Stack>
               ) : (
                 <Button
+                  className="addToBag"
                   onClick={productId}
                   fullWidth
                   style={{

@@ -14,7 +14,7 @@ function CommomLogin() {
   };
 
   return (
-    <div>
+    <div className="Common-Login">
       {active ? (
         <Login listenToActive={listenToActive} />
       ) : (

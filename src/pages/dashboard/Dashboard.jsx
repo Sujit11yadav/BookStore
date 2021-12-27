@@ -43,9 +43,9 @@ function Dashboard(props) {
   };
 
   const ListenToCart = (data) => {
-    if (data == true) {
+    if (data === true) {
       setdisplayMyCart(true);
-    } else if (data == false) {
+    } else if (data === false) {
       setdisplayMyCart(false);
     }
   };
