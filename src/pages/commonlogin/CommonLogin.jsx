@@ -16,9 +16,9 @@ function CommomLogin() {
   return (
     <div className="Common-Login">
       {active ? (
-        <Login listenToActive={listenToActive} />
+        <Login className="Log" listenToActive={listenToActive} />
       ) : (
-        <SignUp listenToActive={listenToActive} />
+        <SignUp className="Sign" listenToActive={listenToActive} />
       )}
     </div>
   );

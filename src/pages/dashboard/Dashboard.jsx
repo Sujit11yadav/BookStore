@@ -20,6 +20,14 @@ function Dashboard(props) {
     setSelection(event.target.value);
   };
 
+  const SwitchToDashboard = (data) => {
+    if (data === true) {
+      setswitchbookcart(true);
+    } else if (data === false) {
+      setswitchbookcart(false);
+    }
+  };
+
   const ListentoSwitchbook = (data) => {
     if (data === true) {
       setswitchbookcart(true);
@@ -56,7 +64,11 @@ function Dashboard(props) {
 
   return (
     <div>
-      <Header className="header" ListenToCart={ListenToCart} />
+      <Header
+        className="header"
+        ListenToCart={ListenToCart}
+        SwitchToDashboard={SwitchToDashboard}
+      />
       <div className="main-content">
         <div className="title">
           <div className="left-content">
@@ -108,6 +120,7 @@ function Dashboard(props) {
                     book={book}
                     ListenToBookList={ListenToBookList}
                     ListentoSwitchbook={ListentoSwitchbook}
+                    SwitchToDashboard={SwitchToDashboard}
                   />
                 ))
               )}

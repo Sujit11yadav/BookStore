@@ -82,7 +82,11 @@ function Login(props) {
       <div className="box2">
         <div className="box21">
           <div className="row1">
-            <h3 style={{ cursor: "pointer" }} onClick={changeBox}>
+            <h3
+              className="change"
+              style={{ cursor: "pointer" }}
+              onClick={changeBox}
+            >
               LOGIN
             </h3>
             <h3 style={{ cursor: "pointer" }} onClick={changeBoxAgain}>
@@ -91,6 +95,7 @@ function Login(props) {
           </div>
           <div className="row2">
             <TextField
+              className="emailFeild"
               style={{ width: "100%", height: "100%" }}
               onChange={takeEmail}
               error={emailError}

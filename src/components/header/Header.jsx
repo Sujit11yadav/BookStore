@@ -9,10 +9,20 @@ function Header(props) {
     props.ListenToCart(true);
   };
 
+  const SwitchDashboard = () => {
+    console.log(props);
+    props.SwitchToDashboard(true);
+  };
+
   return (
     <>
       <div className="header">
-        <img src={education} alt="education" />
+        <img
+          src={education}
+          alt="education"
+          onClick={SwitchDashboard}
+          style={{ cursor: "pointer" }}
+        />
         <p>bookstore</p>
         <input className="search" type="search" placeholder="Search..." />
         <PermIdentityOutlinedIcon
